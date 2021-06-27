@@ -3,75 +3,55 @@ const username = document.getElementById('username');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
-
-// All Fuctions
-// Function to show error
-function showError(input,message) {
-    const formControl = input.parentElement;
-    formControl.className = 'form-control error';
-    const small = formControl.querySelector('small');
-    small.innerText = message;
+function success(input){
+    const parent=input.parentElement;
+    parent.className='form-control success'
+    console.log(parent);
 }
-
-//Fuction to show success
-function showsuccess(input) {
-    const formControl = input.parentElement;
-    formControl.className = 'form-control success';
+function error(input,message){
+    const parent=input.parentElement;
+    parent.className='form-control error';
+    const small=parent.querySelector('small');
+    small.innerText=message;
 }
-
-// Function to check if email is valid
-function checkdEmail(input) {
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (re.test(input.value.trim()) ) {
-        showsuccess(input);
-    } else {
-        showError(input, `Please provide a valid email`)
-    }
-}
-
-// Function to check if required fields have data
-function checkRequired(inputArray) {
-    inputArray.forEach(function(input) {
-        if (input.value === '' ) {
-            console.log(input.id);
-            showError(input,`${getFieldId(input)} is required`);
-        } else {
-            showsuccess(input);
+function checkempty(input){
+    input.forEach(input => {
+        if(input.value===''){
+            error(input,'Input is required');
+        }
+        else{
+            success(input);
         }
     });
 }
-
-// fuction to check length of input field
-function checkLength(input, min, max){
-    if ( input.value,length < min ) {
-        showError(input,`${getFieldId(input)} needs to be at least ${min} characters`);
-    } else if (input.value.length > max) {
-        showError(input,`${getFieldId(input)} needs to be less than ${max} characters`);
-    }else {
-        showsuccess(input);
+function checklength(input,l){
+    if(input.value.length<l){
+        error(input,`Input must have atleast ${l} characters`)
     }
 }
-
-// Function to check if password and confirm password match
-function checkpasswordsMatch(input1, input2) {
-    if ( input1.value !== input2.value ) {
-        showError(input2, "passwords don't match")
+function checkEmail(input){
+    const re= /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const v= re.test(String(input.value).toLowerCase());
+    if(v==false)
+    {
+        error(input,'Please provide a valid email')
     }
 }
+function checkPassword(input1,input2){
+    if(input1.value!=input2.value){
+        error(input2,'Password does not match')
+    }
 
-// Function to get the id of the input field 
-function getFieldId(input) {
-    return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 }
 
-// This is an event listener for the form on submit 
-form.addEventListener('submit',function(e) {
+form.addEventListener('submit',function(e){
     e.preventDefault();
-    
-    checkRequired([username,email,password,password2]);
-    checkLength(username,3,10);
-    checkLength(password,6,30);
-    checkdEmail(email);
-    checkpasswordsMatch(password,password2);
+    error(username,'username is required');
+    checkempty([username,email,password,password2]);
+    checklength(username,3);
+    checklength(password,6);
+    checkEmail(email);
+    checkPassword(password,password2);
+
 
 })

@@ -7,16 +7,17 @@ const password2 = document.getElementById('password2');
 // All Fuctions
 // Function to show error
 function showError(input,message) {
-    const formControl = input.parentElement;
-    formControl.className = 'form-control error';
-    const small = formControl.querySelector('small');
+    const parent = input.parentElement;
+    parent.className = 'form-control error';
+    const small = parent.querySelector('small');
     small.innerText = message;
 }
 
 //Fuction to show success
 function showsuccess(input) {
-    const formControl = input.parentElement;
-    formControl.className = 'form-control success';
+    const parent = input.parentElement;
+    parent.className = 'form-control success';
+    console.log(parent);
 }
 
 // Function to check if email is valid

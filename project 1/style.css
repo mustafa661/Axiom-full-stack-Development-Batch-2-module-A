@@ -20,7 +20,7 @@ body {
 }
 
 .container {
-    background-color: white;
+    background-color:lightblue;
     border-radius: 5px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.4);
     width: 450px;
