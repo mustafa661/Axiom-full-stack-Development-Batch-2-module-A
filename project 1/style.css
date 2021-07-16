@@ -43,13 +43,13 @@ h2 {
 }
 
 .form-control label {
-    color: gray;
+    color: white;
     display: block;
     margin-bottom: 5px;
 }
 
 .form-control input {
-    border: 2px solid lightgray;
+    border: 2px solid green;
     border-radius: 4px;
     display: block;
     width: 100%;
@@ -84,8 +84,8 @@ h2 {
 
 .form button {
     cursor: pointer;
-    background-color: #3725f8;
-    border: 2px solid #3725f8;
+    background:linear-gradient(green,black);
+    border: 2px solid green;
     border-radius: 4px;
     color: white;
     display: block;
@@ -97,8 +97,8 @@ h2 {
 
 button.home {
     cursor: pointer;
-    background-color: lightgray;
-    border: 2px solid lightgray;
+    background: linear-gradient(green,black);
+    border: 2px solid green;
     color: white;
     display: block;
     font-size: 16px;
