@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #BDD5EA;
+    background-color: rgb(0, 162, 255);
     height: 100vh;
     display: flex;
     flex-direction: column;
