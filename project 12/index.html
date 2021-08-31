@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Typing Game</title>
+
+</head>
+<body>
+    <!-- button element for game settings -->
+    <button class="settings-btn" id="settings-btn">
+        <i class="fas fa-tools fa-2x"></i>
+    </button>
+
+    <!-- settings section -->
+    <div class="settings" id="settings">
+        <!-- form to set settings -->
+        <form id="form">
+            <!-- Difficulty settings -->
+            <label for="difficulty">Difficulty</label>
+            <select id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select> 
+        </form>
+    </div>
+
+    <!-- game container -->
+    <div class="container">
+        <!-- Heading -->
+        <h2>Fast Typing Game</h2>
+        <!-- Instructions for player -->
+        <p>Type this word as fast as you can:</p>
+        <!-- Word to type -->
+        <h1 id="word"></h1>
+        <!-- input for user to type the displayed word -->
+        <input type="text" id="user-word" placeholder="Please type here" autocomplete="off" />
+        <!-- timer container -->
+        <p class="timer">
+            Time Remaining: <span id="time">60s</span>
+        </p>
+        <!-- Score container -->
+        <p class="scorecard">
+            Score: <span id="score">0</span>
+        </p>
+    </div>
+
+    <!-- End of game container -->
+    <div class="gameover" id="gameover"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
